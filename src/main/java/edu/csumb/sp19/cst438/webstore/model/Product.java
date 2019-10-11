@@ -5,9 +5,9 @@ import org.springframework.data.annotation.Id;
 
 @Document(collection = "Product")
 public class Product {
-    private String name;
     @Id
     private String id;
+    private String name;
     private String description;
     private String imageURL;
     private Double price;
@@ -22,13 +22,14 @@ public class Product {
         this.stock = aStock;
     }
 
-    public String getName() {
-        return this.name;
-    }
     public String getId() {
         return this.id;
     }
 
+    public String getName() {
+        return this.name;
+    }
+    
     public String getDescription() {
         return this.description;
     }
