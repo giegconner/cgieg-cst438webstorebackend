@@ -43,11 +43,11 @@ public class ProductController {
         return productService.getAllProducts();
     }
 
-    @ApiOperation(value = "Delete all database Product table records.  For testing purposes only.")
+    /*@ApiOperation(value = "Delete all database Product table records.  For testing purposes only.")
     @PostMapping("/products/deleteAll")
     public void deleteAllProducts() {
         productService.deleteAllProducts();
-    }
+    }*/
     	
     /*@GetMapping("/power/{power}")
     public List<Product> getByPower (@PathVariable String power) {
