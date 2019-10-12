@@ -1,6 +1,7 @@
 package edu.csumb.cst438.productdb.service;
 
 import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import edu.csumb.cst438.productdb.model.Product;
@@ -15,11 +16,15 @@ public class ProductService {
         productRepo.save(product);
     }
     
-    public Product findByProductId(String id) {
-        return productRepo.findByRepoId(id);
+    public Optional<Product> findProductById(String id) {
+        return productRepo.findById(id);
     }
 
     public List<Product> getAllProducts() {
         return productRepo.findAll();
+    }
+
+    public void deleteAllProducts() {
+        productRepo.deleteAll();
     }
 }
