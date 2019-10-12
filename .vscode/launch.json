@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - HerodbApplication",
+            "request": "launch",
+            "mainClass": "edu.csumb.cst438.herodb.HerodbApplication",
+            "projectName": "herodb"
+        }
+    ]
+}
