@@ -2,7 +2,7 @@ package edu.csumb.cst438.productdb.controller;
 
 import java.util.Arrays;
 import java.util.List;
-import javax.validation.Valid;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
@@ -11,9 +11,9 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 import edu.csumb.cst438.productdb.service.ProductService;
@@ -27,22 +27,26 @@ public class ProductController {
 
     @ApiOperation(value = "Add a new product to the database.")
     @PostMapping("/products/add")
-    public void addProduct(@RequestBody @Valid Product product) {
+    public void addProduct(@RequestBody Product product) {
         productService.addProduct(product);
     }
     
     @ApiOperation(value = "Get a specific product from the database by its ID.")
     @GetMapping("/products/get/{id}")
-    public Product getProductById(@PathVariable String id) {
-        Product result = productService.findByProductId(id);
-        return result;
+    public Optional<Product> getProductById(@RequestParam String id) {
+        return productService.findProductById(id);
     }
 
     @ApiOperation(value = "Get all products from the database.")
     @GetMapping("/products/getAll")
     public List<Product> getAllProducts() {
-        List<Product> result = productService.getAllProducts();
-        return result;
+        return productService.getAllProducts();
+    }
+
+    @ApiOperation(value = "Delete all database Product table records.  For testing purposes only.")
+    @PostMapping("/products/deleteAll")
+    public void deleteAllProducts() {
+        productService.deleteAllProducts();
     }
     	
     /*@GetMapping("/power/{power}")
@@ -51,7 +55,7 @@ public class ProductController {
         return result;
     }*/
 
-    @GetMapping("/someData")
+    /*@GetMapping("/someData")
     public String getThirdPartyData (){
         RestTemplate myTemplate = new RestTemplate();
         String resourceUrl = "https://reqres.in/api/users";
@@ -64,6 +68,6 @@ public class ProductController {
         ResponseEntity<String> response = myTemplate.exchange(resourceUrl, HttpMethod.GET, entity, String.class);
         return response.getBody();
         //return "hello"; 
-    }
+    }*/
 	
 }
