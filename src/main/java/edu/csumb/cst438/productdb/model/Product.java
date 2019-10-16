@@ -4,10 +4,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import io.swagger.annotations.ApiModelProperty;
 
 @Document(collection = "Product")
 public class Product {
-    @Id @JsonProperty(access = Access.READ_ONLY)
+    @Id @ApiModelProperty(hidden = true)
     private String id;
     private String name;
     private String description;
