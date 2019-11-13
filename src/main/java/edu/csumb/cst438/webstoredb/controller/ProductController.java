@@ -1,7 +1,6 @@
 package edu.csumb.cst438.webstoredb.controller;
 
 import java.util.List;
-import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,7 +24,7 @@ public class ProductController {
     
     @ApiOperation(value = "Get a specific product from Product table by id.")
     @GetMapping("/products/get/{id}")
-    public Optional<Product> getProductById(@RequestParam String id) {
+    public Product getProductById(@RequestParam String id) {
         return productService.findProductById(id);
     }
 

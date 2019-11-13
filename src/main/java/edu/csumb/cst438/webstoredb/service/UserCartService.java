@@ -50,21 +50,26 @@ public class UserCartService {
 
     public User clearProductsFromCart(String username) {
         User targetUser = userRepo.findByUsername(username);
-        HashMap<String, Integer> products = targetUser.getProducts();
-        for (String id : products.keySet()) {
-            Product targetProduct = productRepo.findByProductId(id);
-            Integer quantity = products.get(id);
-            targetProduct.decreaseStock(quantity);
-            for (Product product : productRepo.findAll()) {
-                String productId = product.getId();
-                String targetProductId = targetProduct.getId();
-                if (productId.equals(targetProductId)) {
-                    productRepo.save(targetProduct);
+        if (targetUser != null) {
+            HashMap<String, Integer> products = targetUser.getProducts();
+            for (String id : products.keySet()) {
+                Product targetProduct = productRepo.findByProductId(id);
+                Integer quantity = products.get(id);
+                if (targetProduct != null) {
+                    targetProduct.decreaseStock(quantity);
+                    for (Product product : productRepo.findAll()) {
+                        String productId = product.getId();
+                        String targetProductId = targetProduct.getId();
+                        if (productId.equals(targetProductId)) {
+                            productRepo.save(targetProduct);
+                        }
+                    }
                 }
             }
+            products.clear();
+            userRepo.save(targetUser);
         }
-        products.clear();
-        userRepo.save(targetUser);
+        
         return targetUser;
     }
 

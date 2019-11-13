@@ -35,7 +35,7 @@ public class UserCartController {
         return userCartService.clearProductsFromCart(username);
     }
 
-    @ApiOperation(value = "Retrieve all users carts")
+    @ApiOperation(value = "Retrieve all user's carts")
     @PostMapping("/users/cart/getAll")
     public List<User> getAllUsersCarts() {
         return userCartService.getAllUsersCarts();
