@@ -1,11 +1,11 @@
-package edu.csumb.cst438.productdb.service;
+package edu.csumb.cst438.webstoredb.service;
 
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import edu.csumb.cst438.productdb.model.Product;
-import edu.csumb.cst438.productdb.repositories.ProductRepository;
+import edu.csumb.cst438.webstoredb.model.Product;
+import edu.csumb.cst438.webstoredb.repositories.ProductRepository;
 
 @Service
 public class ProductService {
