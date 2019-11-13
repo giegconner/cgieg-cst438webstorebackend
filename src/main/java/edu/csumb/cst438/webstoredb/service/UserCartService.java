@@ -56,11 +56,11 @@ public class UserCartService {
                 Product targetProduct = productRepo.findByProductId(id);
                 Integer quantity = products.get(id);
                 if (targetProduct != null) {
-                    targetProduct.decreaseStock(quantity);
                     for (Product product : productRepo.findAll()) {
                         String productId = product.getId();
                         String targetProductId = targetProduct.getId();
                         if (productId.equals(targetProductId)) {
+                            targetProduct.decreaseStock(quantity);
                             productRepo.save(targetProduct);
                         }
                     }
