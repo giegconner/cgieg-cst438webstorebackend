@@ -4,9 +4,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import edu.csumb.cst438.webstoredb.model.User;
 import edu.csumb.cst438.webstoredb.service.UserAuthenicateService;
@@ -26,7 +26,7 @@ public class UserAuthenticateController {
 
     @ApiOperation(value = "Authenicate a user before they log in.")
     @GetMapping("/users/auth/{username}/{password}")
-    public boolean authenicateUser(@RequestParam String username, @RequestParam String password) {
+    public boolean authenicateUser(@PathVariable String username, @PathVariable String password) {
         return userService.authenicateUser(username, password);
     }
 
