@@ -2,6 +2,7 @@ package edu.csumb.cst438.webstoredb.controller;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -11,6 +12,7 @@ import edu.csumb.cst438.webstoredb.model.User;
 import edu.csumb.cst438.webstoredb.service.UserAuthenicateService;
 import io.swagger.annotations.ApiOperation;
 
+@CrossOrigin("*")
 @RestController
 public class UserAuthenticateController {
     @Autowired
