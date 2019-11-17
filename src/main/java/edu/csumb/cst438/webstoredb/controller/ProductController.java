@@ -37,7 +37,7 @@ public class ProductController {
     }
 
     @ApiOperation(value = "Delete product from Product table with specific id.")
-    @GetMapping("/products/delete/{id}")
+    @GetMapping("/products/delete")
     public void deleteProductId(@RequestParam String id) {
         productService.deleteProductId(id);
     }
