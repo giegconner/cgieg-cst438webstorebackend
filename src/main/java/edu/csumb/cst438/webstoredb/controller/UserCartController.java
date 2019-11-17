@@ -3,6 +3,7 @@ package edu.csumb.cst438.webstoredb.controller;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,6 +11,7 @@ import edu.csumb.cst438.webstoredb.model.User;
 import edu.csumb.cst438.webstoredb.service.UserCartService;
 import io.swagger.annotations.ApiOperation;
 
+@CrossOrigin("*")
 @RestController
 public class UserCartController {
     @Autowired
