@@ -31,7 +31,7 @@ public class UserAuthenticateController {
     }
 
     @ApiOperation(value = "Retrieve all users from User table.")
-    @PostMapping("/users/getAll")
+    @GetMapping("/users/getAll")
     public List<User> getAllUsers() {
         return userService.getAllUsers();
     }

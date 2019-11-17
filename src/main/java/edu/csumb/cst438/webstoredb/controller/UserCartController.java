@@ -2,7 +2,6 @@ package edu.csumb.cst438.webstoredb.controller;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -38,7 +37,7 @@ public class UserCartController {
     }
 
     @ApiOperation(value = "Retrieve all user's carts")
-    @PostMapping("/users/cart/getAll")
+    @GetMapping("/users/cart/getAll")
     public List<User> getAllUsersCarts() {
         return userCartService.getAllUsersCarts();
     }
