@@ -36,6 +36,12 @@ public class ProductController {
         return productService.getAllProducts();
     }
 
+    @ApiOperation(value = "Delete product from Product table with specific id.")
+    @GetMapping("/products/delete/{id}")
+    public void deleteProductId(@RequestParam String id) {
+        productService.deleteProductId(id);
+    }
+
     /*@ApiOperation(value = "Delete Product table. For testing purposes only.")
     @PostMapping("/products/deleteAll")
     public void deleteAllProducts() {
