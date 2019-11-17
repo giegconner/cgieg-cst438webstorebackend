@@ -23,6 +23,10 @@ public class ProductService {
         return productRepo.findAll();
     }
 
+    public void deleteProductId(String id) {
+        productRepo.deleteById(id);
+    }
+
     public void deleteAllProducts() {
         productRepo.deleteAll();
     }
